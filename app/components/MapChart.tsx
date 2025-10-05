@@ -9,17 +9,50 @@ import {
 } from "react-simple-maps";
 
 const geoUrl = "/countries-50m.json"
+const myCountries = {
+  worked : ["Russia", "Georgia", "Hungary"],
+  visited : ["Vietnam", "Uzbekistan", "United Arab Emirates", "Ukraine", "Turkey", 
+    "Spain", "Singapore", "Portugal", "Poland", "Philippines", "Netherlands", 
+    "Morocco", "Mongolia", "Malaysia", "Lithuania", "Latvia", "Laos", "Kyrgyzstan", "Japan", "Italy", 
+    "Israel", "Iran", "Indonesia", "Greece", "France", "Finland", "Estonia", "Czechia", "Croatia", 
+    "China", "Cambodia", "Bulgaria", "Brazil", "Belarus", "Azerbaijan", "Armenia", "Argentina"],
+  experienced : ["Kazakhstan", "Thailand", "Tajikistan", "Nepal", "India"]
+}
+
+function getColor(country: string) {
+  if (myCountries.worked.includes(country)) {
+    return "#60a5fa"
+  }
+  if (myCountries.visited.includes(country)) {
+    return "#4ade80"
+  }
+  if (myCountries.experienced.includes(country)) {
+    return "#f472b6"
+  }
+  return "#cbd5e1"
+}
 
 const MapChart = () => {
   return (
     <div>
       <ComposableMap projection="geoMercator">
-        <ZoomableGroup center={[45, 55]} zoom={3}>
+        <ZoomableGroup center={[45, 55]} zoom={2}>
           <Geographies geography={geoUrl}>
             {({ geographies }) =>
-              geographies.map((geo) => (
-                <Geography key={geo.rsmKey} geography={geo} />
-              ))
+              geographies.map((geo) => {
+                const fillColor = getColor(geo.properties.name)
+                return (
+                  <Geography 
+                    key = {geo.rsmKey} 
+                    geography = {geo} 
+                    fill = {fillColor}
+                    fill-opacity="0.7"
+                    stroke="#222222"
+                    stroke-width="0.2"
+                    stroke-opacity="0.3"
+                  />
+                )
+              })
             }
           </Geographies>
         </ZoomableGroup>
