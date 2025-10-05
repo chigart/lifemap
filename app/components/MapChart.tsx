@@ -36,7 +36,12 @@ const MapChart = () => {
   return (
     <div>
       <ComposableMap projection="geoMercator">
-        <ZoomableGroup center={[45, 55]} zoom={2}>
+        <ZoomableGroup 
+          center = {[45, 55]} 
+          zoom = {2}
+          maxZoom = {5}
+          translateExtent = {[[-80, -100], [880, 900]]}
+        >
           <Geographies geography={geoUrl}>
             {({ geographies }) =>
               geographies.map((geo) => {
@@ -46,10 +51,10 @@ const MapChart = () => {
                     key = {geo.rsmKey} 
                     geography = {geo} 
                     fill = {fillColor}
-                    fill-opacity="0.7"
+                    fillOpacity="0.7"
                     stroke="#222222"
-                    stroke-width="0.2"
-                    stroke-opacity="0.3"
+                    strokeWidth="0.2"
+                    strokeOpacity="0.3"
                   />
                 )
               })
