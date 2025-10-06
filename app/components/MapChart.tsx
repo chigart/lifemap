@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   ComposableMap,
   Geographies,
@@ -33,14 +33,37 @@ function getColor(country: string) {
 }
 
 const MapChart = () => {
+  const containerRef = useRef(null);
+  const [bounds, setBounds] = useState<[[number, number], [number, number]]>([[0, 0], [0, 0]]);
+
+  useEffect(() => {
+    const updateBounds = () => {
+      if (!containerRef.current) return;
+      const { clientWidth: w, clientHeight: h } = containerRef.current;
+
+      setBounds([
+        [- h * 0.1, - h * 0.1],
+        [h * 0.8, h * 0.6],  
+      ]);
+    };
+
+    updateBounds();
+    window.addEventListener("resize", updateBounds);
+    return () => window.removeEventListener("resize", updateBounds);
+  }, []);
+  
   return (
-    <div>
-      <ComposableMap projection="geoMercator">
+    <div ref={containerRef}>
+      <ComposableMap 
+        projection="geoMercator"
+        style={{ width: "100vw", height: "100vh" }}
+      >
         <ZoomableGroup 
-          center = {[45, 55]} 
+          center = {[50, 50]} 
           zoom = {2}
+          minZoom = {2}
           maxZoom = {5}
-          translateExtent = {[[-80, -100], [880, 900]]}
+          translateExtent = {bounds}
         >
           <Geographies geography={geoUrl}>
             {({ geographies }) =>
