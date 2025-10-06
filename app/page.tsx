@@ -1,3 +1,5 @@
+"use client"
+
 import MapChart from "./components/MapChart";
 import { Tooltip } from 'react-tooltip';
 
