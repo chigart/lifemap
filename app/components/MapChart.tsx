@@ -8,7 +8,7 @@ import {
   ZoomableGroup
 } from "react-simple-maps";
 
-const geoUrl = "/countries-50m.json"
+const geoUrl = "/maps/countries-50m.json"
 const myCountries = {
   worked : ["Russia", "Georgia", "Hungary"],
   visited : ["Vietnam", "Uzbekistan", "United Arab Emirates", "Ukraine", "Turkey", 
