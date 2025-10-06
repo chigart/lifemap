@@ -47,12 +47,29 @@ const MapChart = () => {
         >
           <Geographies geography={geoUrl}>
             {({ geographies }) =>
-              geographies.map((geo) => {
-                const fillColor = getColor(geo.properties.name)
+              geographies.map(geo => {
+                const { properties: { name } } = geo;
+                const fillColor = getColor(name)
                 return (
                   <Geography 
                     key = {geo.rsmKey} 
                     geography = {geo} 
+                    data-tooltip-id = "countryInfo"
+                    data-tooltip-content = {name}
+                    data-tooltip-place = "top-start"
+                    style={{
+                      default: {
+                        outline: "none"
+                      },
+                      hover: {
+                        fill: "#F53",
+                        outline: "none"
+                      },
+                      pressed: {
+                        fill: "#E42",
+                        outline: "none"
+                      }
+                    }}
                     fill = {fillColor}
                     fillOpacity="0.7"
                     stroke="#222222"
