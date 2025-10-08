@@ -1,3 +1,5 @@
+import { COUNTRY_COLORS } from "../constants/colors";
+
 export const myCountries = {
   worked: ["Russia", "Georgia", "Hungary"],
   visited: [
@@ -12,15 +14,15 @@ export const myCountries = {
 
 export function getColor(country: string): string {
   if (myCountries.worked.includes(country)) {
-    return "#60a5fa";
+    return COUNTRY_COLORS.worked;
   }
   if (myCountries.visited.includes(country)) {
-    return "#4ade80";
+    return COUNTRY_COLORS.visited;
   }
   if (myCountries.experienced.includes(country)) {
-    return "#f472b6";
+    return COUNTRY_COLORS.experienced;
   }
-  return "#cbd5e1";
+  return COUNTRY_COLORS.default;
 }
 
 export function shouldShowCountry(country: string, activeFilter: string): boolean {

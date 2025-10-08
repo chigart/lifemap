@@ -9,6 +9,7 @@ import {
 } from "react-simple-maps";
 import FilterToggle from "./FilterToggle";
 import { getColor, shouldShowCountry } from "../logic/mapLogic";
+import { COUNTRY_COLORS, INTERACTION_COLORS } from "../constants/colors";
 
 const geoUrl = "/maps/countries-50m.json";
 
@@ -38,7 +39,7 @@ const MapChart = () => {
               geographies.map(geo => {
                 const { properties: { name } } = geo;
                 const isFiltered = shouldShowCountry(name, activeFilter);
-                const fillColor = isFiltered ? getColor(name) : "#cbd5e1";
+                const fillColor = isFiltered ? getColor(name) : COUNTRY_COLORS.default;
                 
                 return (
                   <Geography 
@@ -52,23 +53,23 @@ const MapChart = () => {
                         outline: "none"
                       },
                       hover: isFiltered ? {
-                        fill: "#F53",
+                        fill: INTERACTION_COLORS.hover,
                         outline: "none"
                       } : {
-                        fill: "#cbd5e1",
+                        fill: COUNTRY_COLORS.default,
                         outline: "none"
                       },
                       pressed: isFiltered ? {
-                        fill: "#E42",
+                        fill: INTERACTION_COLORS.pressed,
                         outline: "none"
                       } : {
-                        fill: "#cbd5e1",
+                        fill: COUNTRY_COLORS.default,
                         outline: "none"
                       }
                     }}
                     fill = {fillColor}
                     fillOpacity="0.7"
-                    stroke="#222222"
+                    stroke={INTERACTION_COLORS.stroke}
                     strokeWidth="0.2"
                     strokeOpacity="0.3"
                   />
