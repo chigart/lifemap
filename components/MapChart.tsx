@@ -46,9 +46,6 @@ const MapChart = () => {
                   <Geography 
                     key = {geo.rsmKey} 
                     geography = {geo} 
-                    data-tooltip-id = {isFiltered ? "countryInfo" : undefined}
-                    data-tooltip-content = {isFiltered ? name : undefined}
-                    data-tooltip-place = {isFiltered ? "top-start" : undefined}
                     style={{
                       default: {
                         outline: "none"
