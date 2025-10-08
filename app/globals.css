@@ -1,3 +1,24 @@
+@import "tailwindcss";
+
+:root {
+  /* Map country status colors */
+  --color-worked: #60a5fa;      /* Blue */
+  --color-visited: #4ade80;     /* Green */
+  --color-experienced: #f472b6; /* Pink */
+  --color-default: #cbd5e1;     /* Gray */
+
+  /* Interactive state colors */
+  --color-hover: #F53;          /* Red */
+  --color-pressed: #E42;        /* Darker red */
+  --color-stroke: #222222;      /* Dark gray */
+
+  /* UI component colors */
+  --color-text-active: #ffffff;      /* White */
+  --color-text-inactive: #000000;    /* Black */
+  --color-bg-inactive: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+  --color-border-inactive: #d1d5db;  /* Gray-300 */
+}
+
 html,
 body {
   margin: 0;
@@ -5,4 +26,58 @@ body {
   overflow: hidden;
   height: 100%;
   width: 100%;
+}
+
+/* Filter Toggle Custom Classes */
+.filter-toggle-button {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  border: 2px solid;
+  backdrop-filter: blur(4px);
+}
+
+.filter-toggle-button:hover {
+  transform: scale(1.05);
+}
+
+.filter-toggle-button:active {
+  transform: scale(0.95);
+}
+
+.filter-toggle-button--active {
+  color: white;
+  background-color: var(--filter-color);
+  border-color: var(--filter-color);
+  box-shadow: 0 10px 15px -3px var(--filter-color-shadow), 0 4px 6px -2px var(--filter-color-shadow);
+}
+
+.filter-toggle-button--inactive {
+  background-color: var(--color-bg-inactive);
+  color: var(--color-text-inactive);
+  border-color: var(--color-border-inactive);
+}
+
+.filter-toggle-button--inactive:hover {
+  background-color: var(--filter-color);
+  border-color: var(--filter-color);
+  color: var(--color-text-active);
+}
+
+/* Color-specific classes */
+.filter-toggle-button--worked {
+  --filter-color: var(--color-worked);
+  --filter-color-shadow: #60a5fa40;
+}
+
+.filter-toggle-button--visited {
+  --filter-color: var(--color-visited);
+  --filter-color-shadow: #4ade8040;
+}
+
+.filter-toggle-button--experienced {
+  --filter-color: var(--color-experienced);
+  --filter-color-shadow: #f472b640;
 }

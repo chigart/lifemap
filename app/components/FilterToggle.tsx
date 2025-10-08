@@ -13,18 +13,24 @@ const FilterToggle = ({ activeFilter, onFilterChange }: FilterToggleProps) => {
   );
 
   return (
-    <>
+    <div className="absolute top-4 left-4 flex gap-2 z-50">
       {availableFilters.map(filterKey => {
+        const isActive = activeFilter === filterKey;
         return (
           <button
             key={filterKey}
             onClick={() => onFilterChange(filterKey)}
+            className={`
+              filter-toggle-button
+              filter-toggle-button--${filterKey}
+              ${isActive ? 'filter-toggle-button--active' : 'filter-toggle-button--inactive'}
+            `}
           >
             {filterKey.charAt(0).toUpperCase() + filterKey.slice(1)}
           </button>
         );
       })}
-    </>
+    </div>
   );
 };
 
