@@ -38,7 +38,7 @@ const MapChart = () => {
               geographies.map(geo => {
                 const { properties: { name } } = geo;
                 const isFiltered = shouldShowCountry(name, activeFilter);
-                const fillColor = isFiltered ? getColor(name) : "var(--color-default)";
+                const fillColor = isFiltered ? getColor(name, activeFilter) : "var(--color-default)";
                 
                 return (
                   <Geography 

@@ -10,7 +10,12 @@ export const myCountries = {
   experienced: ["Kazakhstan", "Thailand", "Tajikistan", "Nepal", "India"]
 };
 
-export function getColor(country: string): string {
+export function getColor(country: string, activeFilter?: string): string {
+  // When "visited" filter is active, show all countries in visited color
+  if (activeFilter === "visited") {
+    return "var(--color-visited)";
+  }
+  
   if (myCountries.worked.includes(country)) {
     return "var(--color-worked)";
   }
@@ -24,5 +29,10 @@ export function getColor(country: string): string {
 }
 
 export function shouldShowCountry(country: string, activeFilter: string): boolean {
+  // When "visited" filter is active, show all countries from all categories
+  if (activeFilter === "visited") {
+    return Object.values(myCountries).some(countryList => countryList.includes(country));
+  }
+  
   return myCountries[activeFilter as keyof typeof myCountries]?.includes(country) || false;
 }
