@@ -1,5 +1,6 @@
 "use client"
 
+import { useTranslations } from 'next-intl';
 import { myCountries } from "../logic/mapLogic";
 
 interface FilterToggleProps {
@@ -8,6 +9,7 @@ interface FilterToggleProps {
 }
 
 const FilterToggle = ({ activeFilter, onFilterChange }: FilterToggleProps) => {
+  const t = useTranslations('Filters');
   const availableFilters = Object.keys(myCountries).filter(key => 
     myCountries[key as keyof typeof myCountries].length > 0
   );
@@ -26,7 +28,7 @@ const FilterToggle = ({ activeFilter, onFilterChange }: FilterToggleProps) => {
               ${isActive ? 'filter-toggle-button--active' : 'filter-toggle-button--inactive'}
             `}
           >
-            {filterKey.charAt(0).toUpperCase() + filterKey.slice(1)}
+            {t(filterKey as keyof typeof myCountries)}
           </button>
         );
       })}

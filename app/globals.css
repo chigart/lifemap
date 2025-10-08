@@ -81,3 +81,57 @@ body {
   --filter-color: var(--color-experienced);
   --filter-color-shadow: #f472b640;
 }
+
+/* Language Toggle Custom Classes */
+.lang-toggle-button {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  border: 2px solid;
+  backdrop-filter: blur(4px);
+}
+
+.lang-toggle-button:hover {
+  transform: scale(1.05);
+}
+
+.lang-toggle-button:active {
+  transform: scale(0.95);
+}
+
+.lang-toggle-button--active {
+  color: white;
+  background-color: var(--lang-color);
+  border-color: var(--lang-color);
+  box-shadow: 0 10px 15px -3px var(--lang-color-shadow), 0 4px 6px -2px var(--lang-color-shadow);
+}
+
+.lang-toggle-button--inactive {
+  background-color: var(--color-bg-inactive);
+  color: var(--color-text-inactive);
+  border-color: var(--color-border-inactive);
+}
+
+.lang-toggle-button--inactive:hover {
+  background-color: var(--lang-color);
+  border-color: var(--lang-color);
+  color: var(--color-text-active);
+}
+
+/* Language-specific classes */
+.lang-toggle-button--en {
+  --lang-color: #3b82f6; /* Blue */
+  --lang-color-shadow: #3b82f640;
+}
+
+.lang-toggle-button--ru {
+  --lang-color: #dc2626; /* Red */
+  --lang-color-shadow: #dc262640;
+}
+
+.lang-toggle-button--loading {
+  opacity: 0.7;
+  cursor: not-allowed;
+}

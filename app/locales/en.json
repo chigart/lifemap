@@ -1,0 +1,19 @@
+{
+  "HomePage": {
+    "title": "Life Map",
+    "description": "Interactive map showing countries I've worked, visited, and experienced"
+  },
+  "Layout": {
+    "title": "Life Map",
+    "description": "Interactive world map visualization"
+  },
+  "Filters": {
+    "worked": "Worked",
+    "visited": "Visited", 
+    "experienced": "Experienced"
+  },
+  "Languages": {
+    "en": "English",
+    "ru": "Русский"
+  }
+}

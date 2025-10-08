@@ -8,6 +8,7 @@ import {
   ZoomableGroup
 } from "react-simple-maps";
 import FilterToggle from "./FilterToggle";
+import LangToggle from "./LangToggle";
 import { getColor, shouldShowCountry } from "../logic/mapLogic";
 
 const geoUrl = "/maps/countries-50m.json";
@@ -21,6 +22,7 @@ const MapChart = () => {
         activeFilter={activeFilter} 
         onFilterChange={setActiveFilter} 
       />
+      <LangToggle />
 
       <ComposableMap 
         projection="geoMercator"
