@@ -25,7 +25,7 @@ const LangToggle = () => {
   };
 
   return (
-    <div className="absolute top-4 right-4 flex gap-2 z-50">
+    <div className="absolute top-4 right-2 sm:right-4 flex flex-col sm:flex-row gap-1 sm:gap-2 z-50">
       {languages.map(lang => {
         const isActive = locale === lang.key;
         return (

@@ -30,13 +30,21 @@ body {
 
 /* Filter Toggle Custom Classes */
 .filter-toggle-button {
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  font-size: 0.875rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+  font-size: 0.75rem;
   font-weight: 500;
   transition: all 0.2s;
   border: 2px solid;
   backdrop-filter: blur(4px);
+}
+
+@media (min-width: 640px) {
+  .filter-toggle-button {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+  }
 }
 
 .filter-toggle-button:hover {
@@ -84,13 +92,21 @@ body {
 
 /* Language Toggle Custom Classes */
 .lang-toggle-button {
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  font-size: 0.875rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+  font-size: 0.75rem;
   font-weight: 500;
   transition: all 0.2s;
   border: 2px solid;
   backdrop-filter: blur(4px);
+}
+
+@media (min-width: 640px) {
+  .lang-toggle-button {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+  }
 }
 
 .lang-toggle-button:hover {
@@ -122,13 +138,13 @@ body {
 
 /* Language-specific classes */
 .lang-toggle-button--en {
-  --lang-color: #3b82f6; /* Blue */
-  --lang-color-shadow: #3b82f640;
+  --lang-color: var(--color-hover);
+  --lang-color-shadow: #60a5fa40;
 }
 
 .lang-toggle-button--ru {
-  --lang-color: #dc2626; /* Red */
-  --lang-color-shadow: #dc262640;
+  --lang-color: var(--color-worked);
+  --lang-color-shadow: #4ade8040;
 }
 
 .lang-toggle-button--loading {
