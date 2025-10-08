@@ -1,39 +1,27 @@
 "use client"
 
+import { useState } from "react";
 import {
   ComposableMap,
   Geographies,
   Geography,
   ZoomableGroup
 } from "react-simple-maps";
+import FilterToggle from "./FilterToggle";
+import { getColor, shouldShowCountry } from "../logic/mapLogic";
 
-const geoUrl = "/maps/countries-50m.json"
-const myCountries = {
-  worked : ["Russia", "Georgia", "Hungary"],
-  visited : ["Vietnam", "Uzbekistan", "United Arab Emirates", "Ukraine", "Turkey", 
-    "Spain", "Singapore", "Portugal", "Poland", "Philippines", "Netherlands", 
-    "Morocco", "Mongolia", "Malaysia", "Lithuania", "Latvia", "Laos", "Kyrgyzstan", "Japan", "Italy", 
-    "Israel", "Iran", "Indonesia", "Greece", "France", "Finland", "Estonia", "Czechia", "Croatia", 
-    "China", "Cambodia", "Bulgaria", "Brazil", "Belarus", "Azerbaijan", "Armenia", "Argentina"],
-  experienced : ["Kazakhstan", "Thailand", "Tajikistan", "Nepal", "India"]
-}
-
-function getColor(country: string) {
-  if (myCountries.worked.includes(country)) {
-    return "#60a5fa"
-  }
-  if (myCountries.visited.includes(country)) {
-    return "#4ade80"
-  }
-  if (myCountries.experienced.includes(country)) {
-    return "#f472b6"
-  }
-  return "#cbd5e1"
-}
+const geoUrl = "/maps/countries-50m.json";
 
 const MapChart = () => {
+  const [activeFilter, setActiveFilter] = useState("worked");
+
   return (
-    <div>
+    <div className="relative">
+      <FilterToggle 
+        activeFilter={activeFilter} 
+        onFilterChange={setActiveFilter} 
+      />
+
       <ComposableMap 
         projection="geoMercator"
         style={{ width: "100vw", height: "100vh" }}
@@ -49,24 +37,32 @@ const MapChart = () => {
             {({ geographies }) =>
               geographies.map(geo => {
                 const { properties: { name } } = geo;
-                const fillColor = getColor(name)
+                const isFiltered = shouldShowCountry(name, activeFilter);
+                const fillColor = isFiltered ? getColor(name) : "#cbd5e1";
+                
                 return (
                   <Geography 
                     key = {geo.rsmKey} 
                     geography = {geo} 
-                    data-tooltip-id = "countryInfo"
-                    data-tooltip-content = {name}
-                    data-tooltip-place = "top-start"
+                    data-tooltip-id = {isFiltered ? "countryInfo" : undefined}
+                    data-tooltip-content = {isFiltered ? name : undefined}
+                    data-tooltip-place = {isFiltered ? "top-start" : undefined}
                     style={{
                       default: {
                         outline: "none"
                       },
-                      hover: {
+                      hover: isFiltered ? {
                         fill: "#F53",
                         outline: "none"
+                      } : {
+                        fill: "#cbd5e1",
+                        outline: "none"
                       },
-                      pressed: {
+                      pressed: isFiltered ? {
                         fill: "#E42",
+                        outline: "none"
+                      } : {
+                        fill: "#cbd5e1",
                         outline: "none"
                       }
                     }}
