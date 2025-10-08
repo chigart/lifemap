@@ -1,12 +1,13 @@
 "use client"
 
 import { useLocale } from 'next-intl';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { useTransition } from 'react';
 
 const LangToggle = () => {
   const locale = useLocale();
   const router = useRouter();
+  const pathname = usePathname();
   const [isPending, startTransition] = useTransition();
 
   const languages = [
@@ -19,8 +20,13 @@ const LangToggle = () => {
       // Set the locale cookie
       document.cookie = `locale=${newLocale}; path=/; max-age=31536000; SameSite=Lax`;
       
-      // Use router.refresh() to refresh server components without full page reload
-      router.refresh();
+      // If we're on the welcome page, force a full page reload to apply locale change
+      if (pathname === '/welcome') {
+        window.location.href = '/welcome?lang=' + newLocale;
+      } else {
+        // Use router.refresh() for other pages
+        router.refresh();
+      }
     });
   };
 

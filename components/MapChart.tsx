@@ -31,7 +31,7 @@ const MapChart = () => {
         <ZoomableGroup 
           center = {[50, 50]} 
           zoom = {2}
-          minZoom = {2}
+          minZoom = {1}
           maxZoom = {5}
           translateExtent = {[[ -100, -100], [900, 700]]}
         >

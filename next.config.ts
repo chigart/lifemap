@@ -4,6 +4,6 @@ import createNextIntlPlugin from 'next-intl/plugin';
 const nextConfig: NextConfig = {};
  
 const withNextIntl = createNextIntlPlugin(
-  './app/logic/request.ts'
+  './logic/request.ts'
 );
 export default withNextIntl(nextConfig);

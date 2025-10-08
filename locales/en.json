@@ -15,5 +15,11 @@
   "Languages": {
     "en": "English",
     "ru": "Русский"
+  },
+  "WelcomePage": {
+    "title": "Welcome to Life Map",
+    "description": "Discover the world through an interactive map showing countries where I've worked, visited, and gained valuable experiences.",
+    "viewMap": "View Interactive Map",
+    "footer": "Explore the world through my journey"
   }
 }
