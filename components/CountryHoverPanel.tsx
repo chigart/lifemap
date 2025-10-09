@@ -13,9 +13,9 @@ const CountryHoverPanel = ({ countryName, activeFilter }: CountryHoverPanelProps
   const tCountries = useTranslations('Countries');
   const tCountryNames = useTranslations('CountryNames');
 
-  const countryData = countryName in tCountries
+  const countryData = countryName && tCountries.has(countryName)
       ? tCountries.raw(countryName)
-    : null
+    : null;
   
   const hasRelevantData = countryData && (
     (activeFilter === 'worked' && countryData.worked) ||
@@ -31,20 +31,13 @@ const CountryHoverPanel = ({ countryName, activeFilter }: CountryHoverPanelProps
         transition={{ type: "tween", duration: 0.3 }}
         className="
           fixed right-0 top-0
-          h-full w-80
+          w-80
           bg-white shadow-2xl
           p-6
           z-50
-          overflow-y-auto
         "
       >
         <h2 className="font-semibold text-lg mb-4">{tCountryNames(countryName)}</h2>
-        <div className="text-center py-8">
-          <p className="text-sm text-gray-500">
-            {activeFilter === 'worked' && 'No work experience data available'}
-            {activeFilter === 'experienced' && 'No experience data available'}
-          </p>
-        </div>
       </motion.div>
     );
   }
@@ -57,11 +50,10 @@ const CountryHoverPanel = ({ countryName, activeFilter }: CountryHoverPanelProps
       transition={{ type: "tween", duration: 0.3 }}
       className="
         fixed right-0 top-0
-        h-full w-80
+        w-80
         bg-white shadow-2xl
         p-6
         z-50
-        overflow-y-auto
       "
     >
       <h2 className="font-semibold text-lg mb-4">{tCountryNames(countryName)}</h2>

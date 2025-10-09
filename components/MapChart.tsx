@@ -30,12 +30,11 @@ const MapChart = () => {
 
   return (
     <div className="relative">
+      <LangToggle />
       <FilterToggle 
         activeFilter={activeFilter} 
         onFilterChange={setActiveFilter} 
       />
-      <LangToggle />
-
       <AnimatePresence>
         {hoverCountry !== null && (
           <CountryHoverPanel 

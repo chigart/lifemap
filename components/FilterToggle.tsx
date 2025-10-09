@@ -15,7 +15,7 @@ const FilterToggle = ({ activeFilter, onFilterChange }: FilterToggleProps) => {
   );
 
   return (
-    <div className="absolute top-4 left-4 flex flex-col sm:flex-row gap-1 sm:gap-2 z-50">
+    <div className="absolute top-13 sm:top-17 left-4 flex sm:flex-row gap-1 sm:gap-2 z-50">
       {availableFilters.map(filterKey => {
         const isActive = activeFilter === filterKey;
         return (
