@@ -4,7 +4,7 @@ import MapChart from "../components/MapChart";
 
 export default function Home() {
   return (
-    <div className="bg-gray-100">
+    <div className="bg-gray-100 cursor-grab active:cursor-grabbing">
       <MapChart />
     </div>
   );
