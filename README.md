@@ -4,5 +4,6 @@ Interactive CV to show off
 https://antonmalkov.ru/
 
 TODO:
-- perfect texts
+- real texts
 - optimize
+- hover for mobile

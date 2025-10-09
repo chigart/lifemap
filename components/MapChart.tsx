@@ -10,7 +10,9 @@ import {
 } from "react-simple-maps";
 import FilterToggle from "./FilterToggle";
 import LangToggle from "./LangToggle";
+import CountryHoverPanel from "./CountryHoverPanel";
 import { getColor, shouldShowCountry, cvCountries } from "../logic/mapLogic";
+import { AnimatePresence } from "framer-motion";
 
 const geoUrl = "/maps/countries-50m.json";
 
@@ -22,6 +24,7 @@ const markers: { coordinates: [number, number], name: string, offset: [number, n
 
 const MapChart = () => {
   const [activeFilter, setActiveFilter] = useState(cvCountries);
+  const [hoverCountry, setHoverCountry] = useState<string | null>(null);
 
   return (
     <div className="relative">
@@ -30,6 +33,15 @@ const MapChart = () => {
         onFilterChange={setActiveFilter} 
       />
       <LangToggle />
+
+      <AnimatePresence>
+        {hoverCountry !== null && (
+          <CountryHoverPanel 
+            countryName={hoverCountry} 
+            activeFilter={activeFilter} 
+          />
+        )}
+      </AnimatePresence>
 
       <ComposableMap 
         projection="geoMercator"
@@ -53,6 +65,8 @@ const MapChart = () => {
                   <Geography 
                     key = {geo.rsmKey} 
                     geography = {geo} 
+                    onMouseEnter={() => isFiltered ? setHoverCountry(name) : setHoverCountry(null)}
+                    onMouseLeave={() => setHoverCountry(null)}
                     style={{
                       default: {
                         outline: "none"
