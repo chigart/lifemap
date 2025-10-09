@@ -4,7 +4,7 @@
   /* Map country status colors */
   --color-worked: #60a5fa;      /* Blue */
   --color-visited: #4ade80;     /* Green */
-  --color-experienced: #f472b6; /* Pink */
+  --color-explored: #f472b6; /* Pink */
   --color-default: #cbd5e1;     /* Gray */
 
   /* Interactive state colors */
@@ -85,8 +85,8 @@ body {
   --filter-color-shadow: #4ade8040;
 }
 
-.filter-toggle-button--experienced {
-  --filter-color: var(--color-experienced);
+.filter-toggle-button--explored {
+  --filter-color: var(--color-explored);
   --filter-color-shadow: #f472b640;
 }
 

@@ -2,31 +2,31 @@ export const cvCountries = "worked";
 
 export const myCountries = {
   [cvCountries]: ["Russia", "Georgia", "Hungary"],
-  experienced: ["Kazakhstan", "Thailand", "Tajikistan", "Nepal", "India"],
+  explored: ["Kazakhstan", "Thailand", "Tajikistan", "Nepal", "India", "Turkey", "Laos", "Kyrgyzstan", "Russia", 
+    "Indonesia", "Argentina", "Georgia"],
   visited: [
-    "Vietnam", "Uzbekistan", "United Arab Emirates", "Ukraine", "Turkey", 
+    "Vietnam", "Uzbekistan", "United Arab Emirates", "Ukraine", 
     "Spain", "Singapore", "Portugal", "Poland", "Philippines", "Netherlands", 
-    "Morocco", "Mongolia", "Malaysia", "Lithuania", "Latvia", "Laos", "Kyrgyzstan", "Japan", "Italy", 
-    "Israel", "Iran", "Indonesia", "Greece", "France", "Finland", "Estonia", "Czechia", "Croatia", 
-    "China", "Cambodia", "Bulgaria", "Brazil", "Belarus", "Azerbaijan", "Armenia", "Argentina"
+    "Morocco", "Mongolia", "Malaysia", "Lithuania", "Latvia", "Japan", "Italy", 
+    "Israel", "Iran", "Greece", "France", "Finland", "Estonia", "Czechia", "Croatia", 
+    "China", "Cambodia", "Bulgaria", "Brazil", "Belarus", "Azerbaijan", "Armenia"
   ]
 };
 
 export function getColor(country: string, activeFilter?: string): string {
-  // When "visited" filter is active, show all countries in visited color
   if (activeFilter === "visited") {
     return "var(--color-visited)";
   }
   
-  if (myCountries.worked.includes(country)) {
-    return "var(--color-worked)";
+  if (activeFilter && myCountries[activeFilter as keyof typeof myCountries]?.includes(country)) {
+    switch (activeFilter) {
+      case "worked":
+        return "var(--color-worked)";
+      case "explored":
+        return "var(--color-explored)";
+    }
   }
-  if (myCountries.visited.includes(country)) {
-    return "var(--color-visited)";
-  }
-  if (myCountries.experienced.includes(country)) {
-    return "var(--color-experienced)";
-  }
+  
   return "var(--color-default)";
 }
 

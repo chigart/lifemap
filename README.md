@@ -10,3 +10,4 @@ TODO:
 - AI chat
 - CMS for content management
 - More country tags
+- Add some info to visited counties

@@ -3,6 +3,22 @@
 import { motion } from "framer-motion";
 import { useTranslations } from 'next-intl';
 
+interface WorkExperience {
+  place: string;
+  dates: string;
+  description: string;
+}
+
+interface ExplorationExperience {
+  dates: string;
+  description: string;
+}
+
+interface CountryData {
+  worked?: WorkExperience[];
+  explored?: ExplorationExperience[];
+}
+
 interface CountryHoverPanelProps {
   countryName: string;
   activeFilter: string;
@@ -13,8 +29,8 @@ const CountryHoverPanel = ({ countryName, activeFilter }: CountryHoverPanelProps
   const tCountries = useTranslations('Countries');
   const tCountryNames = useTranslations('CountryNames');
 
-  const countryData = countryName && tCountries.has(countryName)
-      ? tCountries.raw(countryName)
+  const countryData: CountryData | null = countryName && tCountries.has(countryName)
+      ? tCountries.raw(countryName) as CountryData
     : null;
   
   const hasRelevantData = countryData && (
@@ -22,10 +38,10 @@ const CountryHoverPanel = ({ countryName, activeFilter }: CountryHoverPanelProps
      countryData.worked && 
      Array.isArray(countryData.worked) && 
      countryData.worked.length > 0) ||
-    (activeFilter === 'experienced' && 
-     countryData.experienced && 
-     Array.isArray(countryData.experienced) && 
-     countryData.experienced.length > 0)
+    (activeFilter === 'explored' && 
+     countryData.explored && 
+     Array.isArray(countryData.explored) && 
+     countryData.explored.length > 0)
   );
   
   if (!hasRelevantData) {
@@ -74,7 +90,7 @@ const CountryHoverPanel = ({ countryName, activeFilter }: CountryHoverPanelProps
               {t('worked.title')}
             </h3>
             <div className="space-y-3">
-              {countryData.worked.map((work: any, index: number) => (
+              {countryData.worked.map((work: WorkExperience, index: number) => (
                 <div key={index} className="bg-blue-50 p-3 rounded-lg">
                   <div className="space-y-1 text-sm">
                     <p>
@@ -99,28 +115,26 @@ const CountryHoverPanel = ({ countryName, activeFilter }: CountryHoverPanelProps
           </div>
         )}
         
-        {activeFilter === 'experienced' && 
-         countryData.experienced && 
-         Array.isArray(countryData.experienced) && (
+        {activeFilter === 'explored' && 
+         countryData.explored && 
+         Array.isArray(countryData.explored) && (
           <div>
             <h3 className="font-medium text-base mb-2 text-purple-600">
-              {t('experienced.title')}
+              {t('explored.title')}
             </h3>
             <div className="space-y-3">
-              {countryData.experienced.map((experience: any, index: number) => (
+              {countryData.explored.map((experience: ExplorationExperience, index: number) => (
                 <div key={index} className="bg-purple-50 p-3 rounded-lg">
                   <div className="space-y-1 text-sm">
                     <p>
                       <span className="font-medium">
-                        {t('experienced.dates')}:
-                      </span> 
-                      {experience.dates}
+                        {t('explored.dates')}:
+                      </span> {experience.dates}
                     </p>
                     <p>
                       <span className="font-medium">
-                        {t('experienced.description')}:
-                      </span> 
-                      {experience.description}
+                        {t('explored.description')}:
+                      </span> {experience.description}
                     </p>
                   </div>
                 </div>

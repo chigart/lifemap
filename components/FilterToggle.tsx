@@ -1,7 +1,7 @@
 "use client"
 
 import { useTranslations } from 'next-intl';
-import { myCountries } from "../logic/mapLogic";
+import { myCountries } from "../logic/countries";
 
 interface FilterToggleProps {
   activeFilter: string;

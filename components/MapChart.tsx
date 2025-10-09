@@ -12,7 +12,7 @@ import { useTranslations } from 'next-intl';
 import FilterToggle from "./FilterToggle";
 import LangToggle from "./LangToggle";
 import CountryHoverPanel from "./CountryHoverPanel";
-import { getColor, shouldShowCountry, cvCountries } from "../logic/mapLogic";
+import { getColor, shouldShowCountry, cvCountries } from "../logic/countries";
 import { AnimatePresence } from "framer-motion";
 
 const geoUrl = "/maps/countries-50m.json";
@@ -52,7 +52,7 @@ const MapChart = () => {
           center = {[50, 50]} 
           zoom = {2}
           minZoom = {1}
-          maxZoom = {5}
+          maxZoom = {6}
           translateExtent = {[[ -100, -100], [900, 700]]}
         >
           <Geographies geography={geoUrl}>
