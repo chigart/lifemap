@@ -5,16 +5,23 @@ import {
   ComposableMap,
   Geographies,
   Geography,
-  ZoomableGroup
+  ZoomableGroup,
+  Annotation
 } from "react-simple-maps";
 import FilterToggle from "./FilterToggle";
 import LangToggle from "./LangToggle";
-import { getColor, shouldShowCountry } from "../logic/mapLogic";
+import { getColor, shouldShowCountry, cvCountries } from "../logic/mapLogic";
 
 const geoUrl = "/maps/countries-50m.json";
 
+const markers: { coordinates: [number, number], name: string, offset: [number, number] }[] = [
+  { coordinates: [30.2, 60], name: "St Petersburg", offset: [-30, -30] },
+  { coordinates: [44.8333, 42], name: "Tbilisi", offset: [-40, 10] },
+  { coordinates: [19.0402, 47.4], name: "Budapest", offset: [-30, -30] },
+];
+
 const MapChart = () => {
-  const [activeFilter, setActiveFilter] = useState("worked");
+  const [activeFilter, setActiveFilter] = useState(cvCountries);
 
   return (
     <div className="relative">
@@ -75,6 +82,30 @@ const MapChart = () => {
               })
             }
           </Geographies>
+
+          {cvCountries == activeFilter && markers.map(({ coordinates, name, offset }) => (
+            <Annotation
+              key={name}
+              subject={coordinates}
+              dx={offset[0]}
+              dy={offset[1]}
+              connectorProps={{
+                stroke: "var(--color-visited)",
+                strokeWidth: 1,
+                strokeLinecap: "round"
+              }}
+            >
+              <text 
+                x="-8" 
+                textAnchor="middle" 
+                alignmentBaseline="after-edge" 
+                fill="var(--color-text-inactive)"
+                fontSize="0.5rem"
+              >
+                {name}
+              </text>
+            </Annotation>
+          ))}
         </ZoomableGroup>
       </ComposableMap>
     </div>
