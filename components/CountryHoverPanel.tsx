@@ -11,6 +11,7 @@ interface CountryHoverPanelProps {
 const CountryHoverPanel = ({ countryName, activeFilter }: CountryHoverPanelProps) => {
   const t = useTranslations('CountryPanel');
   const tCountries = useTranslations('Countries');
+  const tCountryNames = useTranslations('CountryNames');
 
   const countryData = tCountries.raw(countryName);
   
@@ -35,7 +36,7 @@ const CountryHoverPanel = ({ countryName, activeFilter }: CountryHoverPanelProps
           overflow-y-auto
         "
       >
-        <h2 className="font-semibold text-lg mb-4">{countryName}</h2>
+        <h2 className="font-semibold text-lg mb-4">{tCountryNames(countryName)}</h2>
         <div className="text-center py-8">
           <p className="text-sm text-gray-500">
             {activeFilter === 'worked' && 'No work experience data available'}
@@ -62,7 +63,7 @@ const CountryHoverPanel = ({ countryName, activeFilter }: CountryHoverPanelProps
         overflow-y-auto
       "
     >
-      <h2 className="font-semibold text-lg mb-4">{countryName}</h2>
+      <h2 className="font-semibold text-lg mb-4">{tCountryNames(countryName)}</h2>
       <div className="space-y-4">
         {activeFilter === 'worked' && countryData.cv && (
           <div className="border-b pb-3">

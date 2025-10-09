@@ -8,6 +8,7 @@ import {
   ZoomableGroup,
   Annotation
 } from "react-simple-maps";
+import { useTranslations } from 'next-intl';
 import FilterToggle from "./FilterToggle";
 import LangToggle from "./LangToggle";
 import CountryHoverPanel from "./CountryHoverPanel";
@@ -25,6 +26,7 @@ const markers: { coordinates: [number, number], name: string, offset: [number, n
 const MapChart = () => {
   const [activeFilter, setActiveFilter] = useState(cvCountries);
   const [hoverCountry, setHoverCountry] = useState<string | null>(null);
+  const t = useTranslations('CityNames');
 
   return (
     <div className="relative">
@@ -116,7 +118,7 @@ const MapChart = () => {
                 fill="var(--color-text-inactive)"
                 fontSize="0.5rem"
               >
-                {name}
+                {t(name)}
               </text>
             </Annotation>
           ))}

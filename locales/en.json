@@ -40,6 +40,58 @@
       "description": "Description"
     }
   },
+  "CountryNames": {
+    "Russia": "Russia",
+    "Georgia": "Georgia", 
+    "Hungary": "Hungary",
+    "Vietnam": "Vietnam",
+    "Uzbekistan": "Uzbekistan",
+    "United Arab Emirates": "United Arab Emirates",
+    "Ukraine": "Ukraine",
+    "Turkey": "Turkey",
+    "Spain": "Spain",
+    "Singapore": "Singapore",
+    "Portugal": "Portugal",
+    "Poland": "Poland",
+    "Philippines": "Philippines",
+    "Netherlands": "Netherlands",
+    "Morocco": "Morocco",
+    "Mongolia": "Mongolia",
+    "Malaysia": "Malaysia",
+    "Lithuania": "Lithuania",
+    "Latvia": "Latvia",
+    "Laos": "Laos",
+    "Kyrgyzstan": "Kyrgyzstan",
+    "Japan": "Japan",
+    "Italy": "Italy",
+    "Israel": "Israel",
+    "Iran": "Iran",
+    "Indonesia": "Indonesia",
+    "Greece": "Greece",
+    "France": "France",
+    "Finland": "Finland",
+    "Estonia": "Estonia",
+    "Czechia": "Czechia",
+    "Croatia": "Croatia",
+    "China": "China",
+    "Cambodia": "Cambodia",
+    "Bulgaria": "Bulgaria",
+    "Brazil": "Brazil",
+    "Belarus": "Belarus",
+    "Azerbaijan": "Azerbaijan",
+    "Armenia": "Armenia",
+    "Argentina": "Argentina",
+    "Kazakhstan": "Kazakhstan",
+    "Thailand": "Thailand",
+    "Tajikistan": "Tajikistan",
+    "Nepal": "Nepal",
+    "India": "India"
+  },
+  "CityNames": {
+    "St Petersburg": "St Petersburg",
+    "Tbilisi": "Tbilisi", 
+    "Budapest": "Budapest"
+  },
   "Countries": {
     "Russia": {
       "cv": {
@@ -142,13 +194,6 @@
         "places": ["Swayambhunath Stupa", "Phewa Lake", "Everest Base Camp", "Annapurna Circuit"]
       }
     },
-    "Vietnam": {
-      "visited": {
-        "visits": ["Ho Chi Minh City", "Hanoi", "Hoi An", "Da Nang"],
-        "days": 21,
-        "places": ["Ha Long Bay", "Hoi An Ancient Town", "Cu Chi Tunnels", "Phong Nha Cave"]
-      }
-    },
     "Uzbekistan": {
       "visited": {
         "visits": ["Tashkent", "Samarkand", "Bukhara"],
@@ -175,13 +220,6 @@
         "visits": ["Istanbul", "Cappadocia", "Antalya"],
         "days": 14,
         "places": ["Hagia Sophia", "Blue Mosque", "Goreme National Park"]
-      }
-    },
-    "Spain": {
-      "visited": {
-        "visits": ["Madrid", "Barcelona", "Seville", "Valencia"],
-        "days": 12,
-        "places": ["Sagrada Familia", "Prado Museum", "Alhambra", "Park Güell"]
       }
     },
     "Singapore": {
@@ -268,20 +306,6 @@
         "places": ["Ala-Archa National Park", "Issyk-Kul Lake", "Sulaiman-Too"]
       }
     },
-    "Japan": {
-      "visited": {
-        "visits": ["Tokyo", "Kyoto", "Osaka", "Hiroshima"],
-        "days": 14,
-        "places": ["Mount Fuji", "Fushimi Inari Shrine", "Peace Memorial Park", "Tokyo Skytree"]
-      }
-    },
-    "Italy": {
-      "visited": {
-        "visits": ["Rome", "Florence", "Venice", "Milan"],
-        "days": 18,
-        "places": ["Colosseum", "Vatican City", "Uffizi Gallery", "Grand Canal"]
-      }
-    },
     "Israel": {
       "visited": {
         "visits": ["Jerusalem", "Tel Aviv", "Haifa"],
@@ -308,13 +332,6 @@
         "visits": ["Athens", "Santorini", "Mykonos"],
         "days": 10,
         "places": ["Acropolis", "Parthenon", "Santorini Caldera"]
-      }
-    },
-    "France": {
-      "visited": {
-        "visits": ["Paris", "Lyon", "Nice", "Marseille"],
-        "days": 16,
-        "places": ["Eiffel Tower", "Louvre Museum", "Notre-Dame", "French Riviera"]
       }
     },
     "Finland": {
