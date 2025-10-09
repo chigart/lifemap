@@ -2,14 +2,14 @@ export const cvCountries = "worked";
 
 export const myCountries = {
   [cvCountries]: ["Russia", "Georgia", "Hungary"],
+  experienced: ["Kazakhstan", "Thailand", "Tajikistan", "Nepal", "India"],
   visited: [
     "Vietnam", "Uzbekistan", "United Arab Emirates", "Ukraine", "Turkey", 
     "Spain", "Singapore", "Portugal", "Poland", "Philippines", "Netherlands", 
     "Morocco", "Mongolia", "Malaysia", "Lithuania", "Latvia", "Laos", "Kyrgyzstan", "Japan", "Italy", 
     "Israel", "Iran", "Indonesia", "Greece", "France", "Finland", "Estonia", "Czechia", "Croatia", 
     "China", "Cambodia", "Bulgaria", "Brazil", "Belarus", "Azerbaijan", "Armenia", "Argentina"
-  ],
-  experienced: ["Kazakhstan", "Thailand", "Tajikistan", "Nepal", "India"]
+  ]
 };
 
 export function getColor(country: string, activeFilter?: string): string {

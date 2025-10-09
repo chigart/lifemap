@@ -23,16 +23,10 @@
     "footer": "Explore the world through my journey"
   },
   "CountryPanel": {
-    "cv": {
+    "worked": {
       "title": "Work Experience",
       "place": "Place of work",
       "dates": "Dates"
-    },
-    "visited": {
-      "title": "Visited",
-      "visits": "Visits",
-      "days": "Total days",
-      "places": "Places visited"
     },
     "experienced": {
       "title": "Experienced",
@@ -94,350 +88,51 @@
   },
   "Countries": {
     "Russia": {
-      "cv": {
+      "worked": {
         "place": "Software Development Company",
         "dates": "2018-2022"
-      },
-      "visited": {
-        "visits": ["Moscow", "St. Petersburg", "Sochi"],
-        "days": 45,
-        "places": ["Red Square", "Hermitage Museum", "Lake Baikal"]
       }
     },
     "Georgia": {
-      "cv": {
+      "worked": {
         "place": "Tech Startup",
         "dates": "2022-2023"
-      },
-      "visited": {
-        "visits": ["Tbilisi", "Batumi", "Kazbegi"],
-        "days": 30,
-        "places": ["Old Tbilisi", "Svetitskhoveli Cathedral", "Gergeti Trinity Church"]
       }
     },
     "Hungary": {
-      "cv": {
+      "worked": {
         "place": "International Tech Company",
         "dates": "2023-present"
-      },
-      "visited": {
-        "visits": ["Budapest", "Debrecen"],
-        "days": 20,
-        "places": ["Parliament Building", "Fisherman's Bastion", "Széchenyi Thermal Bath"]
-      }
-    },
-    "Vietnam": {
-      "visited": {
-        "visits": ["Ho Chi Minh City", "Hanoi", "Hoi An", "Da Nang"],
-        "days": 21,
-        "places": ["Ha Long Bay", "Hoi An Ancient Town", "Cu Chi Tunnels", "Phong Nha Cave"]
-      }
-    },
-    "Japan": {
-      "visited": {
-        "visits": ["Tokyo", "Kyoto", "Osaka", "Hiroshima"],
-        "days": 14,
-        "places": ["Mount Fuji", "Fushimi Inari Shrine", "Peace Memorial Park", "Tokyo Skytree"]
-      }
-    },
-    "Italy": {
-      "visited": {
-        "visits": ["Rome", "Florence", "Venice", "Milan"],
-        "days": 18,
-        "places": ["Colosseum", "Vatican City", "Uffizi Gallery", "Grand Canal"]
-      }
-    },
-    "France": {
-      "visited": {
-        "visits": ["Paris", "Lyon", "Nice", "Marseille"],
-        "days": 16,
-        "places": ["Eiffel Tower", "Louvre Museum", "Notre-Dame", "French Riviera"]
-      }
-    },
-    "Spain": {
-      "visited": {
-        "visits": ["Madrid", "Barcelona", "Seville", "Valencia"],
-        "days": 12,
-        "places": ["Sagrada Familia", "Prado Museum", "Alhambra", "Park Güell"]
       }
     },
     "Thailand": {
       "experienced": {
         "dates": "2019-2020",
         "description": "Digital nomad experience, learned Thai language basics, explored local culture and cuisine"
-      },
-      "visited": {
-        "visits": ["Bangkok", "Chiang Mai", "Phuket", "Krabi"],
-        "days": 35,
-        "places": ["Wat Pho", "Grand Palace", "Phi Phi Islands", "Tiger Cave Temple"]
       }
     },
     "India": {
       "experienced": {
         "dates": "2021",
         "description": "Spiritual journey and meditation retreat, learned about yoga and mindfulness practices"
-      },
-      "visited": {
-        "visits": ["Delhi", "Mumbai", "Goa", "Rishikesh"],
-        "days": 28,
-        "places": ["Taj Mahal", "Golden Temple", "Gateway of India", "Ganges River"]
       }
     },
     "Nepal": {
       "experienced": {
         "dates": "2021",
         "description": "Trekking expedition to Everest Base Camp, learned about mountaineering and local Sherpa culture"
-      },
-      "visited": {
-        "visits": ["Kathmandu", "Pokhara", "Lukla"],
-        "days": 21,
-        "places": ["Swayambhunath Stupa", "Phewa Lake", "Everest Base Camp", "Annapurna Circuit"]
-      }
-    },
-    "Uzbekistan": {
-      "visited": {
-        "visits": ["Tashkent", "Samarkand", "Bukhara"],
-        "days": 7,
-        "places": ["Registan Square", "Shah-i-Zinda", "Kalyan Minaret"]
-      }
-    },
-    "United Arab Emirates": {
-      "visited": {
-        "visits": ["Dubai", "Abu Dhabi", "Sharjah"],
-        "days": 5,
-        "places": ["Burj Khalifa", "Sheikh Zayed Mosque", "Palm Jumeirah"]
-      }
-    },
-    "Ukraine": {
-      "visited": {
-        "visits": ["Kyiv", "Lviv", "Odessa"],
-        "days": 10,
-        "places": ["Saint Sophia's Cathedral", "Lviv Old Town", "Potemkin Stairs"]
-      }
-    },
-    "Turkey": {
-      "visited": {
-        "visits": ["Istanbul", "Cappadocia", "Antalya"],
-        "days": 14,
-        "places": ["Hagia Sophia", "Blue Mosque", "Goreme National Park"]
-      }
-    },
-    "Singapore": {
-      "visited": {
-        "visits": ["Singapore City"],
-        "days": 4,
-        "places": ["Marina Bay Sands", "Gardens by the Bay", "Sentosa Island"]
-      }
-    },
-    "Portugal": {
-      "visited": {
-        "visits": ["Lisbon", "Porto", "Sintra"],
-        "days": 8,
-        "places": ["Belem Tower", "Pena Palace", "Douro Valley"]
-      }
-    },
-    "Poland": {
-      "visited": {
-        "visits": ["Warsaw", "Krakow", "Gdansk"],
-        "days": 9,
-        "places": ["Wawel Castle", "Auschwitz Memorial", "Old Town Warsaw"]
-      }
-    },
-    "Philippines": {
-      "visited": {
-        "visits": ["Manila", "Cebu", "Palawan"],
-        "days": 10,
-        "places": ["Boracay Island", "Chocolate Hills", "Intramuros"]
-      }
-    },
-    "Netherlands": {
-      "visited": {
-        "visits": ["Amsterdam", "Rotterdam", "Utrecht"],
-        "days": 6,
-        "places": ["Anne Frank House", "Van Gogh Museum", "Keukenhof Gardens"]
-      }
-    },
-    "Morocco": {
-      "visited": {
-        "visits": ["Marrakech", "Fez", "Casablanca"],
-        "days": 8,
-        "places": ["Jemaa el-Fnaa", "Hassan II Mosque", "Atlas Mountains"]
-      }
-    },
-    "Mongolia": {
-      "visited": {
-        "visits": ["Ulaanbaatar", "Gobi Desert"],
-        "days": 7,
-        "places": ["Gandantegchinlen Monastery", "Gorkhi-Terelj National Park"]
-      }
-    },
-    "Malaysia": {
-      "visited": {
-        "visits": ["Kuala Lumpur", "Penang", "Langkawi"],
-        "days": 9,
-        "places": ["Petronas Towers", "Batu Caves", "Langkawi Sky Bridge"]
-      }
-    },
-    "Lithuania": {
-      "visited": {
-        "visits": ["Vilnius", "Kaunas", "Klaipeda"],
-        "days": 5,
-        "places": ["Old Town Vilnius", "Trakai Island Castle", "Curonian Spit"]
-      }
-    },
-    "Latvia": {
-      "visited": {
-        "visits": ["Riga", "Jurmala"],
-        "days": 4,
-        "places": ["Old Town Riga", "Art Nouveau District", "Jurmala Beach"]
-      }
-    },
-    "Laos": {
-      "visited": {
-        "visits": ["Vientiane", "Luang Prabang", "Vang Vieng"],
-        "days": 6,
-        "places": ["Pha That Luang", "Kuang Si Falls", "Plain of Jars"]
-      }
-    },
-    "Kyrgyzstan": {
-      "visited": {
-        "visits": ["Bishkek", "Osh", "Issyk-Kul"],
-        "days": 5,
-        "places": ["Ala-Archa National Park", "Issyk-Kul Lake", "Sulaiman-Too"]
-      }
-    },
-    "Israel": {
-      "visited": {
-        "visits": ["Jerusalem", "Tel Aviv", "Haifa"],
-        "days": 7,
-        "places": ["Western Wall", "Dome of the Rock", "Dead Sea"]
-      }
-    },
-    "Iran": {
-      "visited": {
-        "visits": ["Tehran", "Isfahan", "Shiraz"],
-        "days": 10,
-        "places": ["Persepolis", "Naqsh-e Jahan Square", "Golestan Palace"]
-      }
-    },
-    "Indonesia": {
-      "visited": {
-        "visits": ["Jakarta", "Bali", "Yogyakarta"],
-        "days": 12,
-        "places": ["Borobudur Temple", "Ubud Monkey Forest", "Mount Bromo"]
-      }
-    },
-    "Greece": {
-      "visited": {
-        "visits": ["Athens", "Santorini", "Mykonos"],
-        "days": 10,
-        "places": ["Acropolis", "Parthenon", "Santorini Caldera"]
-      }
-    },
-    "Finland": {
-      "visited": {
-        "visits": ["Helsinki", "Tampere", "Rovaniemi"],
-        "days": 6,
-        "places": ["Suomenlinna Fortress", "Santa Claus Village", "Northern Lights"]
-      }
-    },
-    "Estonia": {
-      "visited": {
-        "visits": ["Tallinn", "Tartu"],
-        "days": 3,
-        "places": ["Old Town Tallinn", "Kadriorg Palace", "Lahemaa National Park"]
-      }
-    },
-    "Czechia": {
-      "visited": {
-        "visits": ["Prague", "Brno", "Cesky Krumlov"],
-        "days": 7,
-        "places": ["Prague Castle", "Charles Bridge", "Old Town Square"]
-      }
-    },
-    "Croatia": {
-      "visited": {
-        "visits": ["Zagreb", "Split", "Dubrovnik"],
-        "days": 8,
-        "places": ["Plitvice Lakes", "Diocletian's Palace", "Dubrovnik Old Town"]
-      }
-    },
-    "China": {
-      "visited": {
-        "visits": ["Beijing", "Shanghai", "Xi'an"],
-        "days": 15,
-        "places": ["Great Wall", "Forbidden City", "Terracotta Army"]
-      }
-    },
-    "Cambodia": {
-      "visited": {
-        "visits": ["Phnom Penh", "Siem Reap", "Sihanoukville"],
-        "days": 8,
-        "places": ["Angkor Wat", "Royal Palace", "Killing Fields"]
-      }
-    },
-    "Bulgaria": {
-      "visited": {
-        "visits": ["Sofia", "Plovdiv", "Varna"],
-        "days": 5,
-        "places": ["Alexander Nevsky Cathedral", "Old Town Plovdiv", "Black Sea Coast"]
-      }
-    },
-    "Brazil": {
-      "visited": {
-        "visits": ["Rio de Janeiro", "São Paulo", "Salvador"],
-        "days": 12,
-        "places": ["Christ the Redeemer", "Copacabana Beach", "Amazon Rainforest"]
-      }
-    },
-    "Belarus": {
-      "visited": {
-        "visits": ["Minsk", "Brest", "Grodno"],
-        "days": 4,
-        "places": ["Independence Square", "Brest Fortress", "Mir Castle"]
-      }
-    },
-    "Azerbaijan": {
-      "visited": {
-        "visits": ["Baku", "Ganja", "Shaki"],
-        "days": 5,
-        "places": ["Old City Baku", "Gobustan National Park", "Flame Towers"]
-      }
-    },
-    "Armenia": {
-      "visited": {
-        "visits": ["Yerevan", "Gyumri", "Dilijan"],
-        "days": 4,
-        "places": ["Geghard Monastery", "Mount Ararat", "Cascade Complex"]
-      }
-    },
-    "Argentina": {
-      "visited": {
-        "visits": ["Buenos Aires", "Córdoba", "Mendoza"],
-        "days": 10,
-        "places": ["Plaza de Mayo", "Iguazu Falls", "Perito Moreno Glacier"]
       }
     },
     "Kazakhstan": {
       "experienced": {
         "dates": "2020",
         "description": "Business trip and cultural exchange, learned about Central Asian traditions and nomadic culture"
-      },
-      "visited": {
-        "visits": ["Almaty", "Nur-Sultan", "Shymkent"],
-        "days": 8,
-        "places": ["Big Almaty Lake", "Bayterek Tower", "Charyn Canyon"]
       }
     },
     "Tajikistan": {
       "experienced": {
         "dates": "2020",
         "description": "Mountain trekking and cultural immersion, learned about Pamir traditions and local hospitality"
-      },
-      "visited": {
-        "visits": ["Dushanbe", "Khujand", "Pamir Mountains"],
-        "days": 6,
-        "places": ["Ismaili Centre", "Pamir Highway", "Wakhan Valley"]
       }
     }
   }

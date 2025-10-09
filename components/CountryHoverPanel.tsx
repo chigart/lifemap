@@ -13,12 +13,14 @@ const CountryHoverPanel = ({ countryName, activeFilter }: CountryHoverPanelProps
   const tCountries = useTranslations('Countries');
   const tCountryNames = useTranslations('CountryNames');
 
-  const countryData = tCountries.raw(countryName);
+  const countryData = countryName in tCountries
+      ? tCountries.raw(countryName)
+    : null
   
-  const hasRelevantData = 
-    (activeFilter === 'worked' && countryData.cv) ||
-    (activeFilter === 'visited' && countryData.visited) ||
-    (activeFilter === 'experienced' && countryData.experienced);
+  const hasRelevantData = countryData && (
+    (activeFilter === 'worked' && countryData.worked) ||
+    (activeFilter === 'experienced' && countryData.experienced)
+  );
   
   if (!hasRelevantData) {
     return (
@@ -40,7 +42,6 @@ const CountryHoverPanel = ({ countryName, activeFilter }: CountryHoverPanelProps
         <div className="text-center py-8">
           <p className="text-sm text-gray-500">
             {activeFilter === 'worked' && 'No work experience data available'}
-            {activeFilter === 'visited' && 'No visit information available'}
             {activeFilter === 'experienced' && 'No experience data available'}
           </p>
         </div>
@@ -65,39 +66,17 @@ const CountryHoverPanel = ({ countryName, activeFilter }: CountryHoverPanelProps
     >
       <h2 className="font-semibold text-lg mb-4">{tCountryNames(countryName)}</h2>
       <div className="space-y-4">
-        {activeFilter === 'worked' && countryData.cv && (
+        {activeFilter === 'worked' && countryData.worked && (
           <div className="border-b pb-3">
             <h3 className="font-medium text-base mb-2 text-blue-600">
-              {t('cv.title')}
+              {t('worked.title')}
             </h3>
             <div className="space-y-1 text-sm">
               <p>
-                <span className="font-medium">{t('cv.place')}:</span> {countryData.cv.place}
+                <span className="font-medium">{t('worked.place')}:</span> {countryData.worked.place}
               </p>
               <p>
-                <span className="font-medium">{t('cv.dates')}:</span> {countryData.cv.dates}
-              </p>
-            </div>
-          </div>
-        )}
-        
-        {activeFilter === 'visited' && countryData.visited && (
-          <div className="border-b pb-3">
-            <h3 className="font-medium text-base mb-2 text-green-600">
-              {t('visited.title')}
-            </h3>
-            <div className="space-y-1 text-sm">
-              <p>
-                <span className="font-medium">{t('visited.visits')}:</span> 
-                {countryData.visited.visits.join(", ")}
-              </p>
-              <p>
-                <span className="font-medium">{t('visited.days')}:</span> 
-                {countryData.visited.days}
-              </p>
-              <p>
-                <span className="font-medium">{t('visited.places')}:</span> 
-                {countryData.visited.places.join(", ")}
+                <span className="font-medium">{t('worked.dates')}:</span> {countryData.worked.dates}
               </p>
             </div>
           </div>
