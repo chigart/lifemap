@@ -4,6 +4,9 @@ Interactive CV to show off
 https://antonmalkov.ru/
 
 TODO:
-- real texts
-- optimize
-- hover for mobile
+- Real texts
+- Pictures and media to country info
+- Optimize
+- AI chat
+- CMS for content management
+- More country tags

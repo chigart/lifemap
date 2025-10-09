@@ -26,7 +26,8 @@
     "worked": {
       "title": "Work Experience",
       "place": "Place of work",
-      "dates": "Dates"
+      "dates": "Dates",
+      "description": "Description"
     },
     "experienced": {
       "title": "Experienced",
@@ -88,52 +89,76 @@
   },
   "Countries": {
     "Russia": {
-      "worked": {
-        "place": "Software Development Company",
-        "dates": "2018-2022"
-      }
+      "worked": [
+        {
+          "place": "Part time and freelance",
+          "dates": "2016-2021",
+          "description": "From 2016 to 2018 worked part-time for a non-profit organization. In 2021 freelanced for personal clients, websites based on ReactJS and GatsbyJS."
+        },
+        {
+          "place": "ITMO University",
+          "dates": "2021-2022",
+          "description": "Frontend Developer in two big projects: website for all university admissions and corporate CMS. Implemented from scratch frontend testing system, based on Jest and Storybook. Worked with 10+ legacy projects."
+        }
+      ]
     },
     "Georgia": {
-      "worked": {
-        "place": "Tech Startup",
-        "dates": "2022-2023"
-      }
+      "worked": [
+        {
+          "place": "Debertech",
+          "dates": "2022",
+          "description": "Sole Frontend Developer in admin panel project for a payment system. Full frontend development in React. Moved legacy projects from Vue to React."
+        }
+      ]
     },
     "Hungary": {
-      "worked": {
-        "place": "International Tech Company",
-        "dates": "2023-present"
-      }
+      "worked": [
+        {
+          "place": "Gaijin",
+          "dates": "2023-2024",
+          "description": "Senior Developer at War Thunder Mobile. From beta test to full release and multiple major updates. Implemented 10+ major game features (UI and logic), including a new research tree and an in-game ads system. Fixed hundreds of bugs. Proud to have played a significant role in creating the best mobile game."
+        }
+      ]
     },
     "Thailand": {
-      "experienced": {
-        "dates": "2019-2020",
-        "description": "Digital nomad experience, learned Thai language basics, explored local culture and cuisine"
-      }
+      "experienced": [
+        {
+          "dates": "2019-2020",
+          "description": "Digital nomad experience, learned Thai language basics, explored local culture and cuisine"
+        }
+      ]
     },
     "India": {
-      "experienced": {
-        "dates": "2021",
-        "description": "Spiritual journey and meditation retreat, learned about yoga and mindfulness practices"
-      }
+      "experienced": [
+        {
+          "dates": "2021",
+          "description": "Spiritual journey and meditation retreat, learned about yoga and mindfulness practices"
+        }
+      ]
     },
     "Nepal": {
-      "experienced": {
-        "dates": "2021",
-        "description": "Trekking expedition to Everest Base Camp, learned about mountaineering and local Sherpa culture"
-      }
+      "experienced": [
+        {
+          "dates": "2021",
+          "description": "Trekking expedition to Everest Base Camp, learned about mountaineering and local Sherpa culture"
+        }
+      ]
     },
     "Kazakhstan": {
-      "experienced": {
-        "dates": "2020",
-        "description": "Business trip and cultural exchange, learned about Central Asian traditions and nomadic culture"
-      }
+      "experienced": [
+        {
+          "dates": "2020",
+          "description": "Business trip and cultural exchange, learned about Central Asian traditions and nomadic culture"
+        }
+      ]
     },
     "Tajikistan": {
-      "experienced": {
-        "dates": "2020",
-        "description": "Mountain trekking and cultural immersion, learned about Pamir traditions and local hospitality"
-      }
+      "experienced": [
+        {
+          "dates": "2020",
+          "description": "Mountain trekking and cultural immersion, learned about Pamir traditions and local hospitality"
+        }
+      ]
     }
   }
 }
