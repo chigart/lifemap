@@ -13,8 +13,9 @@ import FilterToggle from "./FilterToggle";
 import LangToggle from "./LangToggle";
 import CountryHoverPanel from "./CountryHoverPanel";
 import LoadingSpinner from "./LoadingSpinner";
-import { getColor, shouldShowCountry, cvCountries } from "../logic/countries";
+import { getColor, shouldShowCountry, myCountries } from "../logic/countries";
 import { AnimatePresence } from "framer-motion";
+import ChatWidget from "./ChatWidget";
 
 const geoUrl = "/maps/countries-50m.json";
 
@@ -29,7 +30,7 @@ const markers: {
 ];
 
 const MapChart = () => {
-  const [activeFilter, setActiveFilter] = useState(cvCountries);
+  const [activeFilter, setActiveFilter] = useState("worked");
   const [hoverCountry, setHoverCountry] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const hasLoadedRef = useRef(false);
@@ -66,6 +67,7 @@ const MapChart = () => {
         activeFilter={activeFilter} 
         onFilterChange={setActiveFilter} 
       />
+      <ChatWidget />
       <AnimatePresence>
         {hoverCountry !== null && (
           <CountryHoverPanel 
@@ -119,7 +121,7 @@ const MapChart = () => {
             }}
           </Geographies>
 
-          {cvCountries === activeFilter && markers.map(({ coordinates, name, offset }) => (
+          {"worked" === activeFilter && markers.map(({ coordinates, name, offset }) => (
             <Annotation
               key={name}
               subject={coordinates}

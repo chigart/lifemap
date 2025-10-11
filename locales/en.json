@@ -19,6 +19,15 @@
     "en": "English",
     "ru": "Русский"
   },
+  "Chat": {
+    "button": "Ask me about my experience",
+    "title": "Chat with Anton",
+    "placeholder": "Start a conversation by asking about my experience, projects, or skills!",
+    "inputPlaceholder": "Type your message here...",
+    "user": "You",
+    "assistant": "Anton",
+    "error": "Something went wrong. Please try again later."
+  },
   "WelcomePage": {
     "title": "Anton Malkov",
     "description": "Interactive map showing countries where I've worked, visited, and gained valuable experiences.",

@@ -1,7 +1,5 @@
-export const cvCountries = "worked";
-
 export const myCountries = {
-  [cvCountries]: ["Russia", "Georgia", "Hungary"],
+  worked: ["Russia", "Georgia", "Hungary"],
   explored: ["Kazakhstan", "Thailand", "Tajikistan", "Nepal", "India", "Turkey", "Laos", "Kyrgyzstan", "Russia", 
     "Indonesia", "Argentina", "Georgia"],
   visited: [

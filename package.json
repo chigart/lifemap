@@ -11,6 +11,8 @@
   "dependencies": {
     "@types/react-simple-maps": "^3.0.6",
     "framer-motion": "^12.23.22",
+    "groq-sdk": "^0.33.0",
+    "lucide-react": "^0.545.0",
     "next": "15.5.4",
     "next-intl": "^4.3.11",
     "react": "19.1.0",
