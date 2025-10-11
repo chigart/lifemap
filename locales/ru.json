@@ -12,6 +12,9 @@
     "visited": "Посетил",
     "explored": "Исследовал"
   },
+  "Loading": {
+    "map": "Загрузка карты..."
+  },
   "Languages": {
     "en": "English",
     "ru": "Русский"

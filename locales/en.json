@@ -12,6 +12,9 @@
     "visited": "Visited", 
     "explored": "Explored"
   },
+  "Loading": {
+    "map": "Loading map..."
+  },
   "Languages": {
     "en": "English",
     "ru": "Русский"

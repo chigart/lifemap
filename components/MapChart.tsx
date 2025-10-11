@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react";
+import { useState, useMemo, memo, useRef } from "react";
 import {
   ComposableMap,
   Geographies,
@@ -12,6 +12,7 @@ import { useTranslations } from 'next-intl';
 import FilterToggle from "./FilterToggle";
 import LangToggle from "./LangToggle";
 import CountryHoverPanel from "./CountryHoverPanel";
+import LoadingSpinner from "./LoadingSpinner";
 import { getColor, shouldShowCountry, cvCountries } from "../logic/countries";
 import { AnimatePresence } from "framer-motion";
 
@@ -26,10 +27,37 @@ const markers: { coordinates: [number, number], name: string, offset: [number, n
 const MapChart = () => {
   const [activeFilter, setActiveFilter] = useState(cvCountries);
   const [hoverCountry, setHoverCountry] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const hasLoadedRef = useRef(false);
   const t = useTranslations('CityNames');
+
+  // Memoize style objects to prevent recreation on each render
+  const defaultStyle = useMemo(() => ({
+    default: {
+      outline: "none"
+    }
+  }), []);
+
+  const getHoverStyle = useMemo(() => (isFiltered: boolean) => ({
+    hover: isFiltered ? {
+      fill: "var(--color-hover)",
+      outline: "none"
+    } : {
+      fill: "var(--color-default)",
+      outline: "none"
+    },
+    pressed: isFiltered ? {
+      fill: "var(--color-pressed)",
+      outline: "none"
+    } : {
+      fill: "var(--color-default)",
+      outline: "none"
+    }
+  }), []);
 
   return (
     <div className="relative">
+      {isLoading && <LoadingSpinner />}
       <LangToggle />
       <FilterToggle 
         activeFilter={activeFilter} 
@@ -56,8 +84,14 @@ const MapChart = () => {
           translateExtent = {[[ -100, -100], [900, 700]]}
         >
           <Geographies geography={geoUrl}>
-            {({ geographies }) =>
-              geographies.map(geo => {
+            {({ geographies }) => {
+              // Use setTimeout to defer state update outside of render
+              if (geographies.length > 0 && !hasLoadedRef.current) {
+                hasLoadedRef.current = true;
+                setTimeout(() => setIsLoading(false), 0);
+              }
+              
+              return geographies.map(geo => {
                 const { properties: { name } } = geo;
                 const isFiltered = shouldShowCountry(name, activeFilter);
                 const fillColor = isFiltered ? getColor(name, activeFilter) : "var(--color-default)";
@@ -69,23 +103,8 @@ const MapChart = () => {
                     onMouseEnter={() => isFiltered ? setHoverCountry(name) : setHoverCountry(null)}
                     onMouseLeave={() => setHoverCountry(null)}
                     style={{
-                      default: {
-                        outline: "none"
-                      },
-                      hover: isFiltered ? {
-                        fill: "var(--color-hover)",
-                        outline: "none"
-                      } : {
-                        fill: "var(--color-default)",
-                        outline: "none"
-                      },
-                      pressed: isFiltered ? {
-                        fill: "var(--color-pressed)",
-                        outline: "none"
-                      } : {
-                        fill: "var(--color-default)",
-                        outline: "none"
-                      }
+                      ...defaultStyle,
+                      ...getHoverStyle(isFiltered)
                     }}
                     fill = {fillColor}
                     fillOpacity="0.7"
@@ -94,8 +113,8 @@ const MapChart = () => {
                     strokeOpacity="0.3"
                   />
                 )
-              })
-            }
+              });
+            }}
           </Geographies>
 
           {cvCountries == activeFilter && markers.map(({ coordinates, name, offset }) => (
@@ -127,4 +146,4 @@ const MapChart = () => {
   );
 };
 
-export default MapChart;
+export default memo(MapChart);
