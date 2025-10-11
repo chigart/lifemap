@@ -18,7 +18,11 @@ import { AnimatePresence } from "framer-motion";
 
 const geoUrl = "/maps/countries-50m.json";
 
-const markers: { coordinates: [number, number], name: string, offset: [number, number] }[] = [
+const markers: { 
+  coordinates: [number, number], 
+  name: string, 
+  offset: [number, number] 
+}[] = [
   { coordinates: [30.2, 60], name: "St Petersburg", offset: [-30, -30] },
   { coordinates: [44.8333, 42], name: "Tbilisi", offset: [-40, 10] },
   { coordinates: [19.0402, 47.4], name: "Budapest", offset: [-30, -30] },
@@ -31,7 +35,6 @@ const MapChart = () => {
   const hasLoadedRef = useRef(false);
   const t = useTranslations('CityNames');
 
-  // Memoize style objects to prevent recreation on each render
   const defaultStyle = useMemo(() => ({
     default: {
       outline: "none"
@@ -85,7 +88,6 @@ const MapChart = () => {
         >
           <Geographies geography={geoUrl}>
             {({ geographies }) => {
-              // Use setTimeout to defer state update outside of render
               if (geographies.length > 0 && !hasLoadedRef.current) {
                 hasLoadedRef.current = true;
                 setTimeout(() => setIsLoading(false), 0);
@@ -117,7 +119,7 @@ const MapChart = () => {
             }}
           </Geographies>
 
-          {cvCountries == activeFilter && markers.map(({ coordinates, name, offset }) => (
+          {cvCountries === activeFilter && markers.map(({ coordinates, name, offset }) => (
             <Annotation
               key={name}
               subject={coordinates}

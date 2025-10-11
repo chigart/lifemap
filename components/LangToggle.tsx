@@ -17,14 +17,11 @@ const LangToggle = () => {
 
   const handleLanguageChange = (newLocale: string) => {
     startTransition(() => {
-      // Set the locale cookie
       document.cookie = `locale=${newLocale}; path=/; max-age=31536000; SameSite=Lax`;
       
-      // If we're on the welcome page, force a full page reload to apply locale change
       if (pathname === '/welcome') {
         window.location.href = '/welcome?lang=' + newLocale;
       } else {
-        // Use router.refresh() for other pages
         router.refresh();
       }
     });
