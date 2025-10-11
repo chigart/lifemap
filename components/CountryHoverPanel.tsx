@@ -53,14 +53,13 @@ const CountryHoverPanel = ({ countryName, activeFilter }: CountryHoverPanelProps
         transition={{ type: "tween", duration: 0.3 }}
         className="
           fixed right-0 top-0
-          w-80
           bg-white
           shadow-2xl
           p-6
           z-50
         "
       >
-        <h2 className="font-semibold text-lg mb-4">{tCountryNames(countryName)}</h2>
+        <h2 className="font-semibold text-lg">{tCountryNames(countryName)}</h2>
       </motion.div>
     );
   }
